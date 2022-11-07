@@ -25,6 +25,13 @@ const routes = [
 		path: "/books/{bookId}",
 		handler: getBookDetailHandler,
 	},
+	{
+		method: "*",
+		path: "/books/{any*}",
+		handler: (req, h) => {
+			return "Page not found";
+		},
+	},
 ];
 
 module.exports = routes;

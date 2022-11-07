@@ -47,10 +47,11 @@ const addBookToShelf = (request, h) => {
 		return response;
 	}
 
+	// adding to shelf
 	bookshelf.push(newBook);
-
 	const isSuccess = bookshelf.filter(book => book.id === id).length > 0;
 
+	// returning the response
 	if (isSuccess) {
 		const response = h.response({
 			status: "success",

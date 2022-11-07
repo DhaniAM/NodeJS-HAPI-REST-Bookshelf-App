@@ -1,6 +1,7 @@
 const {addBookToShelf} = require("./addBookHandler");
 const {getBookDetailHandler} = require("./getBookDetailHandler");
 const {getBookFromShelf} = require("./getBookHandler");
+const {updateBookHandler} = require("./updateBookHandler");
 
 const routes = [
 	{
@@ -31,6 +32,11 @@ const routes = [
 		handler: (req, h) => {
 			return "Page not found";
 		},
+	},
+	{
+		method: "PUT",
+		path: "/books/{bookId}",
+		handler: updateBookHandler,
 	},
 ];
 

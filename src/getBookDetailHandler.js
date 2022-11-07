@@ -1,6 +1,7 @@
 const {bookshelf} = require("./bookshelf");
 
 const getBookDetailHandler = (request, h) => {
+	// request.params get bookId from link path parameter
 	const {bookId} = request.params;
 
 	const bookDetail = bookshelf.filter(book => book.id === bookId);

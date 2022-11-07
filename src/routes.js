@@ -1,7 +1,11 @@
+const { addBookToShelf } = require("./handler");
+
 const routes = [
 	{
 		method: 'POST',
 		path: '/add',
-		handler: () => { },
+		handler: addBookToShelf,
 	}
 ];
+
+module.exports = routes;

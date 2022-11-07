@@ -2,4 +2,4 @@ const finishedShelf = [];
 
 const unfinishedShelf = [];
 
-module.exports = { finishedShelf, unfinishedShelf };
+module.exports = {finishedShelf, unfinishedShelf};

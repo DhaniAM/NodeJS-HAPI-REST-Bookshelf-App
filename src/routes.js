@@ -3,7 +3,7 @@ const { addBookToShelf } = require("./handler");
 const routes = [
 	{
 		method: 'POST',
-		path: '/add',
+		path: '/books',
 		handler: addBookToShelf,
 	}
 ];

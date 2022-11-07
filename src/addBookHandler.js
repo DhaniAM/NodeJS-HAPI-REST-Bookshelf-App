@@ -1,3 +1,4 @@
+const {response} = require("@hapi/hapi/lib/validation");
 const {bookshelf} = require("./bookshelf");
 
 const addBookToShelf = (request, h) => {
@@ -23,51 +24,6 @@ const addBookToShelf = (request, h) => {
 		insertedAt,
 		updatedAt,
 	};
-
-	let isSuccess = false;
-
-	// Check book data is correct, return error
-	if (!name) {
-		response.code(400);
-		const response = {
-			status: "fail",
-			message: "Failed adding book. Please fill the name of the book",
-		};
-		return response;
-	}
-
-	if (readPage > pageCount) {
-		response.code(400);
-		const response = {
-			status: "fail",
-			message: "Failed adding book. readPage cant be higher than pageCount",
-		};
-		return response;
-	}
-
-	// add to bookshelf
-	bookshelf.push(newBook);
-	isSuccess = bookshelf.filter(book => book.id === id).length > 0;
-
-	// return response status
-	if (isSuccess) {
-		const response = h.response({
-			status: "success",
-			message: "Success adding book to shelf",
-			data: {
-				bookId: id,
-			},
-		});
-		response.code(201);
-		return response;
-	} else {
-		const response = h.response({
-			status: "failed",
-			message: "Failed adding book to shelf",
-		});
-		response.code(500);
-		return response;
-	}
 };
 
 module.exports = {addBookToShelf};

@@ -1,5 +1,3 @@
-const finishedShelf = [];
+const bookshelf = [];
 
-const unfinishedShelf = [];
-
-module.exports = {finishedShelf, unfinishedShelf};
+module.exports = {bookshelf};

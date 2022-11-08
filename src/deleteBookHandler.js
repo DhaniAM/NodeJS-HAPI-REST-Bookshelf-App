@@ -5,26 +5,22 @@ const deleteBookHandler = (request, h) => {
 
   const index = bookshelf.findIndex((book) => book.id === bookId);
 
-  bookshelf.splice(index - 2, 1);
-
-  // eslint-disable-next-line max-len
-  const isSuccess = bookshelf.filter((book) => book.id === bookId).length === 0 ? true : false;
-
-  if (isSuccess) {
+  if (index !== -1) {
+    bookshelf.splice(index, 1);
     const response = h.response({
       status: 'success',
       message: 'Success deleting book',
     });
     response.code(200);
     return response;
-  } else {
-    const response = h.response({
-      status: 'success',
-      message: 'Failed to delete book',
-    });
-    response.code(404);
-    return response;
   }
+
+  const response = h.response({
+    status: 'fail',
+    message: 'Failed to delete book. Book Id not found',
+  });
+  response.code(404);
+  return response;
 };
 
 module.exports = {deleteBookHandler};

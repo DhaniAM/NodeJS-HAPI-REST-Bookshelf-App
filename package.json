@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/server.js"
+    "start": "nodemon ./src/server.js",
+    "lint": "eslint ./src"
   },
   "author": "Dhani",
   "license": "ISC",
@@ -13,6 +14,8 @@
     "nanoid": "^3.3.4"
   },
   "devDependencies": {
+    "eslint": "^8.27.0",
+    "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.20"
   }
 }

@@ -22,24 +22,25 @@ const addBookToShelf = (request, h) => {
   const newBook = {
     id,
     name,
-    year: parseInt(year),
+    year,
     author,
     summary,
     publisher,
-    pageCount: parseInt(pageCount),
-    readPage: parseInt(readPage),
+    pageCount,
+    readPage,
     finished,
     reading,
     insertedAt,
     updatedAt,
   };
 
+
   // Check error
   // when there's no name
   if (!name) {
     const response = h.response({
       status: 'fail',
-      message: 'Failed adding book. Please fill out the name of the book.',
+      message: 'Gagal menambahkan buku. Mohon isi nama buku',
     });
     response.code(400);
     return response;
@@ -49,7 +50,8 @@ const addBookToShelf = (request, h) => {
   if (readPage > pageCount) {
     const response = h.response({
       status: 'fail',
-      message: 'Failed adding book. readPage can\'t be bigger than pageCount',
+      // eslint-disable-next-line max-len
+      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
     });
     response.code(400);
     return response;
@@ -63,7 +65,7 @@ const addBookToShelf = (request, h) => {
   if (isSuccess) {
     const response = h.response({
       status: 'success',
-      message: 'Book added to shelf',
+      message: 'Buku berhasil ditambahkan',
       data: {
         bookId: newBook.id,
       },
@@ -73,7 +75,7 @@ const addBookToShelf = (request, h) => {
   } else {
     const response = h.response({
       status: 'error',
-      message: 'Failed adding book',
+      message: 'Buku gagal ditambahkan',
     });
     response.code(500);
     return response;

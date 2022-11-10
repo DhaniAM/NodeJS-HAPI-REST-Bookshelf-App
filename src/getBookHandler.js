@@ -110,11 +110,7 @@ const getBookFromShelf = (request, h) => {
       id: book.id,
       name: book.name,
       publisher: book.publisher,
-      query: {
-        name,
-        reading,
-        finished,
-      },
+
     };
   });
 

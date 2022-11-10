@@ -22,7 +22,7 @@ const getBookDetailHandler = (request, h) => {
   } else {
     const response = h.response({
       status: 'fail',
-      message: 'Book not found',
+      message: 'Buku tidak ditemukan',
     });
 
     response.code(404);

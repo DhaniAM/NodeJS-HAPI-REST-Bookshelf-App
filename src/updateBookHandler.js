@@ -20,7 +20,7 @@ const updateBookHandler = (request, h) => {
     if (!name) {
       const response = h.response({
         status: 'fail',
-        message: 'Failed updating book. Please fill the book name',
+        message: 'Gagal memperbarui buku. Mohon isi nama buku',
       });
       response.code(400);
       return response;
@@ -30,7 +30,7 @@ const updateBookHandler = (request, h) => {
       const response = h.response({
         status: 'fail',
         // eslint-disable-next-line max-len
-        message: 'Failed updating book. readPage can\'t be bigger than pageCount',
+        message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
       });
       response.code(400);
       return response;
@@ -53,7 +53,7 @@ const updateBookHandler = (request, h) => {
 
     const response = h.response({
       status: 'success',
-      message: 'book updated',
+      message: 'Buku berhasil diperbarui',
     });
     response.code(200);
     return response;
@@ -61,7 +61,7 @@ const updateBookHandler = (request, h) => {
     // when book Id not avaible in shelf
     const response = h.response({
       status: 'fail',
-      message: 'Failed adding book. Book Id not found',
+      message: 'Gagal memperbarui buku. Id tidak ditemukan',
     });
     response.code(404);
     return response;
